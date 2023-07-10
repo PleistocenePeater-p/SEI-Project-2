@@ -8,11 +8,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const indexRoutes = require('./routes/index');
-
-
-// create the Express app
-const app = express();
 
 // connect to the MongoDB with mongoose
 require('./config/database');
@@ -20,6 +15,14 @@ require('./config/database');
 require('./config/passport');
 
 
+//ROUTER REQUIRES go here
+const indexRouter = require('./routes/index');
+//const workoutsRouter = require('./routes/workouts');
+//const athletesRouter = require('./routes/athletes');
+
+
+// create the Express app
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,6 +41,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
+//
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -50,7 +54,9 @@ app.use(function (req, res, next) {
 });
 
 // mount all routes with appropriate base paths
-app.use('/', indexRoutes);
+app.use('/', indexRouter);
+//app.use('/workouts', workoutsRouter);
+//app.use('/', athletesRouter);
 
 
 // invalid request, send 404 page
