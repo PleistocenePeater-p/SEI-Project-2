@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>home.ejs</h1>
+    <% if (user) { %>
+        <div>Add Workout</div>
+        <div>Add Athlete</div>
+        <a href="/logout">LOG OUT</a>
+        <% } else { %>
+          <a href="/auth/google" class="login">LOG IN&nbsp;</a>
+        <% } %>
 </body>
 </html>
