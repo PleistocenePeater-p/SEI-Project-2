@@ -24,15 +24,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/index', // UPDATE THIS, where do you want the client to go after you login 
-    failureRedirect : '/index' //  UPDATE THIS, where do you want the client to go if login fails
+    successRedirect : '/workouts', // UPDATE THIS, where do you want the client to go after you login 
+    failureRedirect : '/' //  UPDATE THIS, where do you want the client to go if login fails
   }
 ));
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout(function(){ //< - req.logout comes from passport, and what it does is destorys the cookie keeping track of the user!
-    res.redirect('/home') // <---- UPDATE THIS TO WHERE YOU WANT THE USER TO GO AFTER LOGOUT
+    res.redirect('/') // <---- UPDATE THIS TO WHERE YOU WANT THE USER TO GO AFTER LOGOUT
   })
 })
 

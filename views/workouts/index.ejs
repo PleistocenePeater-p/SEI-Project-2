@@ -6,6 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Workout Index</h2>
+    <h2>All Workouts</h2>
+
+
+        <a href="/workouts/new">Add Workout</a>
+        <a href="/auth/google" class="login">LOG IN&nbsp;</a>
+
+        <table id="list">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Upper</th>
+                <th>Lower</th>
+                <th>Conditioning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% workouts.forEach(function(w) { %>
+                <tr>
+                  <td><%= w.date %></td>
+                  <td><%= w.upper %></td>
+                  <td><%= w.lower %></td>
+                  <td><%= w.conditioning %></td>
+                  <td><a href="/workouts/<%= w._id %>">See full workout</a></td>
+                </tr>
+                <% }); %>
+              </tbody>
+            
+            </table>
+
+
 </body>
 </html>

@@ -17,7 +17,7 @@ require('./config/passport');
 
 //ROUTER REQUIRES go here
 const indexRouter = require('./routes/index');
-//const workoutsRouter = require('./routes/workouts');
+const workoutsRouter = require('./routes/workouts');
 //const athletesRouter = require('./routes/athletes');
 
 
@@ -55,7 +55,7 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
-//app.use('/workouts', workoutsRouter);
+app.use('/workouts', workoutsRouter);
 //app.use('/', athletesRouter);
 
 
