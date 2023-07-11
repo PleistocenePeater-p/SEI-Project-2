@@ -18,7 +18,7 @@ require('./config/passport');
 //ROUTER REQUIRES go here
 const indexRouter = require('./routes/index');
 const workoutsRouter = require('./routes/workouts');
-//const athletesRouter = require('./routes/athletes');
+const athletesRouter = require('./routes/athletes');
 
 
 // create the Express app
@@ -56,7 +56,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
 app.use('/workouts', workoutsRouter);
-//app.use('/', athletesRouter);
+app.use('/', athletesRouter);
 
 
 // invalid request, send 404 page
