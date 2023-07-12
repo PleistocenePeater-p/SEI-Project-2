@@ -21,29 +21,29 @@
 
 
 <!--Display all assigned athletes-->
-        <tbody>
-            <h2>Assigned athletes:</h2>
-            <% athletes.forEach(function(a) { %>
-                <tr>
-                    <td><%= a.name %></td>
-                </tr>
-                    <% }); %>
-        </tbody>
-    </table>
+    <h2>Assigned athletes:</h2>
+    <ul>
+        <% workout.athletes.forEach(athlete => { %>
+          <li>
+            <%= athlete.name %>
+            <%= athlete.dob %>
+          </li>
+          
+          <% console.log(athlete)}) %>
+      </ul>
 
 <!--Form to add athletes to the workout-->
 <form id="add-athlete-to-workout" action="/workouts/<%= workout._id %>/athletes" method="POST">
     <select name="athleteId">
-      <!-- Emit an option for each performer -->
-
+      <!-- Emit an option for each athlete -->
       <% athletes.forEach(athlete=> { %>
-        <option value="<%= athlete._id %>">
-          <%= athlete.name %>
-        </option>
-        <% }) %>
-    </select>
-    <button type="submit">Assign</button>
-  </form>
+      <option value="<%= athlete._id %>">
+        <%= athlete.name %>
+      </option>
+      <% }) %>
+  </select>
+  <button type="submit">Add to Workout</button>
+</form>
 
 </body>
 </html>

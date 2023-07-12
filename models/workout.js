@@ -1,24 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Athlete Schema
-  const athleteSchema = new Schema({
-//    userId: String, // this will be injected
-    name: {
-        type: String
-    },
-    dob: {
-        type: Date,
-        default: function() {
-            return new Date().getFullYear();
-        }}
-  });
+
   
 //Workout Schema
 const workoutSchema = new mongoose.Schema({
 //    userId: String, // this will be injected
     date: {
-        type: Number, 
+        type: Date, 
         default: function() {
           return new Date().getFullYear();
       }},
@@ -31,7 +20,7 @@ const workoutSchema = new mongoose.Schema({
     conditioning: {
         type: String
     },
-    athletes: [athleteSchema]   //embedding (JIM: create separate model, use [])
+    athletes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Athlete'}]
   });
 
 

@@ -10,8 +10,10 @@ module.exports = {
 
 async function addToWorkout(req, res) {
     try {
-        const workoutFromTheDatabase = await WorkoutModel.findById(req.params.id)
-        workoutFromTheDatabase.athletes.push(req.body.athleteId)
+      const workoutFromTheDatabase = await WorkoutModel.findById(req.params.id)
+      console.log(workoutFromTheDatabase, req.body.athleteId)
+      workoutFromTheDatabase.athletes.push(req.body.athleteId)
+      console.log("something hee hee")
         await workoutFromTheDatabase.save()
         res.redirect(`/workouts/${req.params.id}`)
     } catch(err){

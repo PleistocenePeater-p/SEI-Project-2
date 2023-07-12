@@ -5,13 +5,22 @@ module.exports = {
     index,
     new: newWorkout,
     create,
-    show
+    show,
+    
 };
+
+
 
 async function show(req, res) {
   try {
-    const workoutFromTheDb = await WorkoutModel.findById(req.params.id).populate("athletes").exec();
-    const athletesFromTheDb = await AthleteModel.find({athlete:req.params.id});
+    const workoutFromTheDb = await WorkoutModel
+    .findById(req.params.id)
+    .populate("athletes")
+    .exec();
+    const athletesFromTheDb = await AthleteModel
+    .find({_id: {$nin: workoutFromTheDb.athletes}});
+    console.log(athletesFromTheDb)
+    console.log(workoutFromTheDb)
     res.render("workouts/show", {
       title: "Workout Detail",
       workout: workoutFromTheDb,

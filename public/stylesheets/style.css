@@ -18,3 +18,13 @@
 .collection-item form {
   margin-top: -5px;
 }
+
+ul {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+	
+li {
+  font-weight: bold;
+}
