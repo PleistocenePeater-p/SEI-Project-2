@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!--Show workout details-->
+<section id="show-page"></section>
+    <div>Date</div>
+    <div><%= workout.date %></div>
+    <div>Upper</div>
+    <div><%= workout.upper %></div>
+    <div>Lower</div>
+    <div><%= workout.lower %></div>
+    <div>Conditioning</div>
+    <div><%= workout.conditioning %></div>
+
+
+
+<!--Display all assigned athletes-->
+        <tbody>
+            <h2>Assigned athletes:</h2>
+            <% athletes.forEach(function(a) { %>
+                <tr>
+                    <td><%= a.name %></td>
+                </tr>
+                    <% }); %>
+        </tbody>
+    </table>
+
+<!--Form to add athletes to the workout-->
+<form id="add-athlete-to-workout" action="/workouts/<%= workout._id %>/athletes" method="POST">
+    <select name="athleteId">
+      <!-- Emit an option for each performer -->
+
+      <% athletes.forEach(athlete=> { %>
+        <option value="<%= athlete._id %>">
+          <%= athlete.name %>
+        </option>
+        <% }) %>
+    </select>
+    <button type="submit">Assign</button>
+  </form>
+
+</body>
+</html>

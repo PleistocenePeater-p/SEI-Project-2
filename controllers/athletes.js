@@ -5,8 +5,19 @@ module.exports = {
 //    index,
     new: newAthlete,
     create,
-//    addToWorkout
+    addToWorkout
 };
+
+async function addToWorkout(req, res) {
+    try {
+        const workoutFromTheDatabase = await WorkoutModel.findById(req.params.id)
+        workoutFromTheDatabase.athletes.push(req.body.athleteId)
+        await workoutFromTheDatabase.save()
+        res.redirect(`/workouts/${req.params.id}`)
+    } catch(err){
+        res.send(err)
+      }
+}
 
 async function newAthlete(req, res) {
     try {

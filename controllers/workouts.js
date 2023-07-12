@@ -1,10 +1,26 @@
 const WorkoutModel = require("../models/workout");
+const AthleteModel = require("../models/athlete");
 
 module.exports = {
     index,
     new: newWorkout,
     create,
+    show
 };
+
+async function show(req, res) {
+  try {
+    const workoutFromTheDb = await WorkoutModel.findById(req.params.id).populate("athletes").exec();
+    const athletesFromTheDb = await AthleteModel.find({athlete:req.params.id});
+    res.render("workouts/show", {
+      title: "Workout Detail",
+      workout: workoutFromTheDb,
+      athletes: athletesFromTheDb
+    });
+  } catch (err) {
+    res.send(err);
+  }
+}
 
 async function index(req, res, next) {
   const workouts = await WorkoutModel.find({})
@@ -14,7 +30,6 @@ async function index(req, res, next) {
 function newWorkout(req, res) {
     res.render("workouts/new", { title: "Add Workout", errorMsg: "" });
   }
-
 
 
 async function create(req, res) {

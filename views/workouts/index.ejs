@@ -11,6 +11,7 @@
 
         <a href="/workouts/new">Add Workout</a>
         <a href="/athletes/new">Add Athlete</a>
+        <a href="/athletes/">View All Athletes</a>
 
         <table id="list">
             <thead>
@@ -28,7 +29,7 @@
                   <td><%= w.upper %></td>
                   <td><%= w.lower %></td>
                   <td><%= w.conditioning %></td>
-                  <td><a href="/workouts/<%= w._id %>">See full workout</a></td>
+                  <td><a href="/workouts/<%= w._id %>">See details</a></td>
                 </tr>
                 <% }); %>
               </tbody>
