@@ -19,8 +19,8 @@ async function show(req, res) {
     .exec();
     const athletesFromTheDb = await AthleteModel
     .find({_id: {$nin: workoutFromTheDb.athletes}});
-    console.log(athletesFromTheDb)
-    console.log(workoutFromTheDb)
+//    console.log(athletesFromTheDb)
+//    console.log(workoutFromTheDb)
     res.render("workouts/show", {
       title: "Workout Detail",
       workout: workoutFromTheDb,

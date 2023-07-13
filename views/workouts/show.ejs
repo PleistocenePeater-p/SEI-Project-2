@@ -26,7 +26,7 @@
         <% workout.athletes.forEach(athlete => { %>
           <li>
             <%= athlete.name %>
-
+<!--Button to remove assigned athlete-->
             <form method="POST" action="/athletes/<%= athlete.id %>?_method=DELETE">
                 <button type="submit">X</button>
             </form>

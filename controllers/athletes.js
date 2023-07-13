@@ -11,15 +11,16 @@ module.exports = {
 
 async function deleteFromWorkout(req, res, next) {
   try {
-    // Find the movie with the review, 
-    const workout_fromDb = await WorkoutModel.findOne({ 'athletes._id': req.params.id, 'athletes.user': req.user._id });
+    // Find the Workout with the Athlete, 
+    const workout_fromDb = await WorkoutModel.findOne({ 'athletes': req.params.id});
+    console.log(workout_fromDb)
     // A rogue User, a user thats not logged in
     if (!workout_fromDb) return res.redirect('/workouts')
-    // then remove the review from the movies movie.reviews array (.remove is from mongoose doc methods)
-    workout_fromDb.athletes.remove(req.params.id); // remove takes the id of the subdoc (review)	
-    // we mutated the movieDoc reviews array so we need to tell mongodb to update the databsase
+    // then remove the Athlete from the Workout's workout.athletes array (.remove is from mongoose doc methods)
+    workout_fromDb.athletes.remove(req.params.id); // remove takes the id of the subdoc (athlete)	
+    // we mutated the workoutDoc Athletes array so we need to tell mongodb to update the databsase
     await workout_fromDb.save();
-    res.redirect(`/workouts${workout_fromDb._id}`); // tells th client to make a request to this route
+    res.redirect(`/workouts/${workout_fromDb._id}`); // tells th client to make a request to this route
   } catch (err) {
     next(err)
   }
