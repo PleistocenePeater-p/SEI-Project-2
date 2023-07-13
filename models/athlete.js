@@ -7,7 +7,12 @@ const athleteSchema = new Schema({
     required: true,
     unique: true
   },
-  dob: Date
+  dob: {
+    type: Date
+  },
+  user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
+  userName: String,
+  userAvatar: String
 });
 
 module.exports = mongoose.model('Athlete', athleteSchema);

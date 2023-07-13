@@ -13,7 +13,10 @@ module.exports = {
 
 async function update(req, res) {
   try {
-    const workout_from_Db = await WorkoutModel.update(req.params.id, req.body); // the await is waiting for the WorkoutModel to go to MongoDB ATLAS (our db) a
+    const workout_from_Db = await WorkoutModel.findOneAndUpdate({_id: req.params.id},
+      req.body,
+      {new:true}
+      ); // the await is waiting for the WorkoutModel to go to MongoDB ATLAS (our db) a
     //and put the contents form in the db, and come back to the express server
     // if you want to see what you put in the database on your server
     //console.log(workout_from_Db);

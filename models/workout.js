@@ -20,7 +20,10 @@ const workoutSchema = new mongoose.Schema({
     conditioning: {
         type: String
     },
-    athletes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Athlete'}]
+    athletes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Athlete'}],
+    user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
+  userName: String,
+  userAvatar: String
   });
 
 
