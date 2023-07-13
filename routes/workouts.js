@@ -12,4 +12,5 @@ router.post('/', workoutsCtrl.create);
 // GET /workouts/:id (show functionality) MUST be below new route
 router.get('/:id', workoutsCtrl.show);
 
+
 module.exports = router;

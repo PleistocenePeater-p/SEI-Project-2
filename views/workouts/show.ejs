@@ -26,7 +26,11 @@
         <% workout.athletes.forEach(athlete => { %>
           <li>
             <%= athlete.name %>
-            <%= athlete.dob %>
+
+            <form method="POST" action="/athletes/<%= athlete.id %>?_method=DELETE">
+                <button type="submit">X</button>
+            </form>
+
           </li>
           
           <% console.log(athlete)}) %>
