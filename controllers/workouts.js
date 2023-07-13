@@ -7,8 +7,23 @@ module.exports = {
     create,
     show,
     edit,
+    update
     
 };
+
+async function update(req, res) {
+  try {
+    const workout_from_Db = await WorkoutModel.update(req.params.id, req.body); // the await is waiting for the WorkoutModel to go to MongoDB ATLAS (our db) a
+    //and put the contents form in the db, and come back to the express server
+    // if you want to see what you put in the database on your server
+    //console.log(workout_from_Db);
+    await workout_from_Db.save();
+    // Always redirect after CUDing data
+    res.redirect(`/workouts/${workout_from_Db._id}`);
+  } catch (err) {
+    res.send(err);
+  }
+}
 
 async function edit(req, res) {
   for (let key in req.body) {
@@ -32,8 +47,6 @@ async function show(req, res) {
     .exec();
     const athletesFromTheDb = await AthleteModel
     .find({_id: {$nin: workoutFromTheDb.athletes}});
-//    console.log(athletesFromTheDb)
-//    console.log(workoutFromTheDb)
     res.render("workouts/show", {
       title: "Workout Detail",
       workout: workoutFromTheDb,
@@ -63,7 +76,7 @@ try {
   const workoutFromTheDatabase = await WorkoutModel.create(req.body); // the await is waiting for the WorkoutModel to go to MongoDB ATLAS (our db) a
   //and put the contents form in the db, and come back to the express server
   // if you want to see what you put in the database on your server
-  console.log(workoutFromTheDatabase);
+  //console.log(workoutFromTheDatabase);
   // Always redirect after CUDing data
 
   res.redirect("/workouts");

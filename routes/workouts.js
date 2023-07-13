@@ -14,6 +14,7 @@ router.get('/:id/edit', workoutsCtrl.edit)
 // POST /workouts
 router.post('/', workoutsCtrl.create);
 // PUT /workouts/:id
+router.put('/:id', workoutsCtrl.update);
 
 
 module.exports = router;
