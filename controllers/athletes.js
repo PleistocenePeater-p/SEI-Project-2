@@ -62,6 +62,7 @@ async function create(req, res) {
     // createdAthlete is the variable that holds the result 
     // of Athlete.create which is the document you created in the 
     // database
+    req.body.user = req.user._id;
     const createdAthlete = await AthleteModel.create(req.body);
     console.log(createdAthlete, " <- createdAthlete")
     // tell the client to make a GET request to /athletes/new

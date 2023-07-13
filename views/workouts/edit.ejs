@@ -1,4 +1,6 @@
-<a href="/workouts">All Workouts</a>
+<%- include('../partials/header') %>
+
+
 
 <form id="edit-form" action="/workouts/<%=workout.id%>?_method=PUT" method="POST">
     <label>Date:</label>

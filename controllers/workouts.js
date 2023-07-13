@@ -75,6 +75,7 @@ async function create(req, res) {
 for (let key in req.body) {
   if (req.body[key] === "") delete req.body[key];
 }
+req.body.user = req.user._id;
 try {
   const workoutFromTheDatabase = await WorkoutModel.create(req.body); // the await is waiting for the WorkoutModel to go to MongoDB ATLAS (our db) a
   //and put the contents form in the db, and come back to the express server

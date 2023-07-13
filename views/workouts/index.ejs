@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include('../partials/header') %>
+
 <body>
     <h2>All Workouts</h2>
 
-
-        <a href="/workouts/new">Add Workout</a>
-        <a href="/athletes/new">Add Athlete</a>
-        <a href="/athletes/">View All Athletes</a>
+        <% if (user) { %>
+          <a href="/workouts/new">Add Workout</a>
+          <a href="/athletes/new">Add Athlete</a>
+          <a href="/athletes/">View All Athletes</a>
+        <% } else { %>
+          <p>You must be logged in to add a workout.</p>
+        <% } %>
 
         <table id="list">
             <thead>
