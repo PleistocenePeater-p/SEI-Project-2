@@ -12,10 +12,10 @@ module.exports = {
 async function deleteFromWorkout(req, res, next) {
   try {
     // Find the Workout with the Athlete, 
-    const workout_fromDb = await WorkoutModel.findOne({ 'athletes': req.params.id});
+    const workout_fromDb = await WorkoutModel.findOne({"athletes": req.params.id});
     console.log(workout_fromDb)
     // A rogue User, a user thats not logged in
-    if (!workout_fromDb) return res.redirect('/workouts')
+    if (!workout_fromDb) return res.redirect("/workouts")
     // then remove the Athlete from the Workout's workout.athletes array (.remove is from mongoose doc methods)
     workout_fromDb.athletes.remove(req.params.id); // remove takes the id of the subdoc (athlete)	
     // we mutated the workoutDoc Athletes array so we need to tell mongodb to update the databsase

@@ -1,0 +1,13 @@
+<a href="/workouts">All Workouts</a>
+
+<form id="edit-form" action="/workouts/<%=workout.id%>?+method=PUT" method="POST">
+    <label>Date:</label>
+    <input type="date" name="date" value="<%=workout.date%>"><br>
+    <label>Upper:</label>
+    <input type="text" name="upper" value="<%=workout.upper%>"><br>
+    <label>Lower:</label>
+    <input type="text" name="lower" value="<%=workout.lower%>"><br>
+    <label>Conditioning:</label>
+    <input type="text" name="conditioning" value="<%=workout.conditioning%>"><br><br>
+    <input type="submit" value="Update">
+</form>

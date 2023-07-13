@@ -6,10 +6,23 @@ module.exports = {
     new: newWorkout,
     create,
     show,
+    edit,
     
 };
 
-
+async function edit(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === "") delete req.body[key];
+  }
+  try {
+    const workout_Db = await WorkoutModel.findById(req.params.id);
+    res.render("workouts/edit", {
+      workout: workout_Db
+    });
+  } catch(err) {
+    res.send(err);
+  }
+}
 
 async function show(req, res) {
   try {
