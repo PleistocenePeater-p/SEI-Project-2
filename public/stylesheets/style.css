@@ -2,6 +2,23 @@ body {
   font-family: 'Roboto Mono', monospace;
 }
 
+#show-page {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  column-gap: 20px;
+}
+div.show-ulc {
+  font-size: 4vmin;
+}
+
+#home-h1 {
+  font-size: 10vmin;
+}
+#home-hook {
+  font-size: 20px;
+}
+
 .brand-logo {
   margin-left: 15px;
 }

@@ -3,6 +3,8 @@
 This app allows remote strength and conditioning coaches to create workouts, create athletes, and assign athletes to workouts.
 
 <h2>Screenshots</h2>
+<img src="https://i.imgur.com/FHjYyi0.png">
+
 
 <h2>Technologies Used</h2>
 <ul>

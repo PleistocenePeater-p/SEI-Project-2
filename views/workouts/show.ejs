@@ -3,16 +3,18 @@
 <body>
     
 <!--Show workout details-->
-<section id="show-page"></section>
-    <div>Date</div>
-    <div><%= workout.date %></div>
-    <div>Upper</div>
-    <div><%= workout.upper %></div>
-    <div>Lower</div>
-    <div><%= workout.lower %></div>
-    <div>Conditioning</div>
-    <div><%= workout.conditioning %></div>
+<div>Complete on:</div><br>
+<p> <%= workout.date %></p><br>
 
+<section id="show-page">
+  <div class="show-ulc">Upper</div>
+  <p><%= workout.upper %></p>
+  <div class="show-ulc">Lower</div>
+  <p><%= workout.lower %></p>
+  <div class="show-ulc">Conditioning</div>
+  <p><%= workout.conditioning %></p>
+</section>
+    
     <% if (user) { %>
       <a href="/workouts/<%=workout.id%>/edit">Edit Workout</a>
     <% } else { %>
