@@ -1,6 +1,6 @@
-<h1>Coaching App</h1>
+<h1>Kavorka: Remote Coaching App</h1>
 <br>
-This app allows remote strength and conditioning coaches to schedule individual workouts, create athletes, and assign athletes to workouts.
+This app allows remote strength and conditioning coaches to create workouts, create athletes, and assign athletes to workouts.
 
 <h2>Screenshots</h2>
 
