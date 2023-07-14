@@ -1,5 +1,21 @@
 body {
   font-family: 'Roboto Mono', monospace;
+  background: linear-gradient(-33deg, #ff438b, #ff8c52, #ff6756, #ffae3c);
+  background-size: 400% 400%;
+  height: 100vh;
+}
+#home-body {  
+  font-family: 'Roboto Mono', monospace; 
+  background: linear-gradient(-33deg, #ff438b, #ff8c52, #ff6756, #ffae3c);
+  background-size: 400% 400%;
+  animation: gradient 7s ease-in infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
 #show-page {
